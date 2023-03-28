@@ -1,14 +1,14 @@
 import "./App.css";
-import bootstrapLogo from "./Images/bootstrapLogo.png";
+import bootstrapLogo from "./images/bootstrapLogo.png";
 
-import CardData from "./CardData.js";
+import CardDataList from "./CardDataList.js";
 
 function AppHeader() {
   return (
-    <header>
+    <div className="header">
       <div className="nav-wrapper border-bottom box-shadow">
         <div className="nav-title">
-          <p className="nav-companyname">&nbsp;&nbsp;&nbsp;Company name</p>
+          <p className="nav-company-name">&nbsp;&nbsp;&nbsp;Company name</p>
         </div>
         <nav className="header-nav">
           <a className="header-nav-el" href="">
@@ -28,12 +28,12 @@ function AppHeader() {
           </button>
         </nav>
       </div>
-    </header>
+    </div>
   );
 }
 function AppMain() {
   return (
-    <main>
+    <div className="main">
       <div className="main-container">
         <div className="main-wrapper-explainer">
           <h1 className="main-title">Pricing</h1>
@@ -50,15 +50,15 @@ function AppMain() {
           </div>
         </div>
         <div className="card-container">
-          <CardData />
+          <CardDataList />
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 function AppFooter() {
   return (
-    <footer className="footer">
+    <div className="footer">
       <div className="info">
         <p>
           <img className="logo" src={bootstrapLogo} />
@@ -98,7 +98,7 @@ function AppFooter() {
           <li className="footer-list-el">Terms</li>
         </ul>
       </div>
-    </footer>
+    </div>
   );
 }
 

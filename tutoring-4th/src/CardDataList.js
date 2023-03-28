@@ -1,4 +1,4 @@
-function CardData() {
+function CardDataList() {
   const cardDataArr = [
     {
       id: 0,
@@ -7,7 +7,8 @@ function CardData() {
       users: 10,
       storage: 2,
       support: "Email",
-      btn: "Sign up for free",
+      buttonText: "Sign up for free",
+      buttonClass: "free",
     },
     {
       id: 1,
@@ -16,7 +17,8 @@ function CardData() {
       users: 20,
       storage: 10,
       support: "Priority email",
-      btn: "Get started",
+      buttonText: "Get started",
+      buttonClass: "pro",
     },
     {
       id: 2,
@@ -25,11 +27,25 @@ function CardData() {
       users: 30,
       storage: 15,
       support: "Phone and email",
-      btn: "Contact us",
+      buttonText: "Contact us",
+      buttonClass: "pro",
     },
   ];
 
-  return <CardList props={cardDataArr} />;
+  return cardDataArr.map((cardData) => {
+    return (
+      <Card
+        key={cardData.id}
+        id={cardData.id}
+        title={cardData.title}
+        price={cardData.price}
+        users={cardData.users}
+        storage={cardData.storage}
+        support={cardData.support}
+        buttonText={cardData.buttonText}
+      />
+    );
+  });
 }
 
 function Card(props) {
@@ -47,27 +63,12 @@ function Card(props) {
         <p className="card-content-el">Help center access</p>
       </div>
       <div className="card-footer">
-        <button className="card-button pro">{props.btn}</button>
+        <button className="card-button {props.buttonClass}">
+          {props.buttonText}
+        </button>
       </div>
     </div>
   );
 }
 
-function CardList(props) {
-  return props.props.map((cardData) => {
-    return (
-      <Card
-        key={cardData.id}
-        id={cardData.id}
-        title={cardData.title}
-        price={cardData.price}
-        users={cardData.users}
-        storage={cardData.storage}
-        support={cardData.support}
-        btn={cardData.btn}
-      />
-    );
-  });
-}
-
-export default CardData;
+export default CardDataList;
