@@ -43,6 +43,7 @@ function CardDataList() {
         storage={cardData.storage}
         support={cardData.support}
         buttonText={cardData.buttonText}
+        buttonClass={cardData.buttonClass}
       />
     );
   });
@@ -63,7 +64,7 @@ function Card(props) {
         <p className="card-content-el">Help center access</p>
       </div>
       <div className="card-footer">
-        <button className="card-button {props.buttonClass}">
+        <button className={`card-button ${props.buttonClass}`}>
           {props.buttonText}
         </button>
       </div>
