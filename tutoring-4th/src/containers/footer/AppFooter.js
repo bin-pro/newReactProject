@@ -1,11 +1,12 @@
-import bootstrapLogo from "../../public/images/bootstrapLogo.png";
-
 function AppFooter() {
   return (
     <div className="footer">
       <div className="info">
         <p>
-          <img className="logo" src={bootstrapLogo} />
+          <img
+            className="logo"
+            src={`${process.env.PUBLIC_URL}/images/bootstrapLogo.png`}
+          />
         </p>
 
         <p className="copyright">
