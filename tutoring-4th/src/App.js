@@ -1,7 +1,7 @@
 import "./App.css";
 import bootstrapLogo from "./images/bootstrapLogo.png";
 
-import CardDataList from "./CardDataList.js";
+import CardDataList from "./components/CardDataList.js";
 
 function AppHeader() {
   return (
