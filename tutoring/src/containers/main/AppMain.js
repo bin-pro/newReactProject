@@ -52,8 +52,8 @@ function AppMain() {
             <button
               onClick={() => {
                 setC((prev) => prev + 1);
-                //setC(c + 1);
                 console.log(`c = ${c}`);
+                //setC(c + 1);
               }}
               value="button-c"
             >
