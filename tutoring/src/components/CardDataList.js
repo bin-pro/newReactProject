@@ -1,9 +1,12 @@
-function CardDataList() {
+import React, { useState } from "react";
+
+var a;
+const CardDataList = ({ b, c, d, e }) => {
   const cardDataArr = [
     {
       id: 0,
       title: "Free",
-      price: 0,
+      price: c,
       users: 10,
       storage: 2,
       support: "Email",
@@ -13,7 +16,7 @@ function CardDataList() {
     {
       id: 1,
       title: "Pro",
-      price: 15,
+      price: d,
       users: 20,
       storage: 10,
       support: "Priority email",
@@ -23,7 +26,7 @@ function CardDataList() {
     {
       id: 2,
       title: "Enterprise",
-      price: 29,
+      price: e,
       users: 30,
       storage: 15,
       support: "Phone and email",
@@ -47,7 +50,7 @@ function CardDataList() {
       />
     );
   });
-}
+};
 
 const Card = ({
   title,
@@ -58,6 +61,10 @@ const Card = ({
   buttonClass,
   buttonText,
 }) => {
+  function changeCost(arg) {
+    arg.useState[1]((prev) => prev + 1);
+  }
+
   return (
     <div className="card box-shadow">
       <div className="card-header">{title}</div>
@@ -72,7 +79,12 @@ const Card = ({
         <p className="card-content-el">Help center access</p>
       </div>
       <div className="card-footer">
-        <button className={`card-button ${buttonClass}`}>{buttonText}</button>
+        <button
+          onClick={changeCost({ price })}
+          className={`card-button ${buttonClass}`}
+        >
+          {buttonText}
+        </button>
       </div>
     </div>
   );

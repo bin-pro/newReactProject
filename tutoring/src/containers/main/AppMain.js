@@ -1,5 +1,12 @@
 import CardDataList from "../../components/CardDataList";
+import React, { useState } from "react";
 function AppMain() {
+  var b;
+
+  const [c, setC] = useState(0);
+  const [d, setD] = useState(15);
+  const [e, setE] = useState(29);
+
   return (
     <div className="main">
       <div className="main-container">
@@ -18,7 +25,12 @@ function AppMain() {
           </div>
         </div>
         <div className="card-container">
-          <CardDataList />
+          <CardDataList
+            b={{ variable: b }}
+            c={{ variable: c, setVariable: setC }}
+            d={{ variable: d, setVariable: setD }}
+            e={{ variable: e, setVariable: setE }}
+          />
         </div>
       </div>
     </div>
