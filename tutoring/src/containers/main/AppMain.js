@@ -1,15 +1,68 @@
 import CardDataList from "../../components/CardDataList";
 import React, { useState } from "react";
+var a = 0;
 function AppMain() {
-  var b;
+  const [userNum, setUserNum] = useState({
+    free: 10,
+    pro: 20,
+    enterprise: 30,
+  });
 
+  const handleUserNumIncrease = (plan) => {
+    setUserNum((prevState) => ({
+      ...prevState,
+      //price 상태 객체의 다른 속성은 유지하고 하나의 속성만 업데이트할 때 덮어쓰지 않도록 하는데 사용. 개체 속성이 하나라면 스프레드 연산자 사용X
+      [plan]: prevState[plan] + 1,
+    }));
+  };
+
+  var b = 0;
   const [c, setC] = useState(0);
-  const [d, setD] = useState(15);
-  const [e, setE] = useState(29);
 
   return (
     <div className="main">
       <div className="main-container">
+        <div className="button-container-abc">
+          <div className="a-wrapper">
+            <span>a : {a}&nbsp;&nbsp;</span>
+            <button
+              onClick={() => {
+                a++;
+                console.log(`a = ${a}`);
+              }}
+            >
+              button-global-a
+            </button>
+            &nbsp;&nbsp;
+          </div>
+          <div className="b-wrapper">
+            <span>b : {b}&nbsp;&nbsp;</span>
+            <button
+              onClick={() => {
+                b++;
+                console.log(`b = ${b}`);
+              }}
+            >
+              button-local-b
+            </button>
+            &nbsp;&nbsp;
+          </div>
+          <div className="c-wrapper">
+            <span>c : {c}&nbsp;&nbsp;</span>
+            <button
+              onClick={() => {
+                setC((prev) => prev + 1);
+                //setC(c + 1);
+                console.log(`c = ${c}`);
+              }}
+              value="button-c"
+            >
+              button-state-c
+            </button>
+            &nbsp;&nbsp;
+          </div>
+        </div>
+
         <div className="main-explainer-wrapper">
           <h1 className="main-title">Pricing</h1>
           <div className="main-content">
@@ -26,10 +79,8 @@ function AppMain() {
         </div>
         <div className="card-container">
           <CardDataList
-            b={{ variable: b }}
-            c={{ variable: c, setVariable: setC }}
-            d={{ variable: d, setVariable: setD }}
-            e={{ variable: e, setVariable: setE }}
+            userNum={userNum}
+            handleUserNumIncrease={handleUserNumIncrease}
           />
         </div>
       </div>
