@@ -3,7 +3,7 @@ function AppMain() {
   return (
     <div className="main">
       <div className="main-container">
-        <div className="main-wrapper-explainer">
+        <div className="main-explainer-wrapper">
           <h1 className="main-title">Pricing</h1>
           <div className="main-content">
             <p className="main-content-el">

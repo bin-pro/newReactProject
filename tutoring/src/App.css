@@ -118,7 +118,7 @@
   font-weight: 100;
 }
 
-.main-wrapper-explainer {
+.main-explainer-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -203,14 +203,14 @@
 
   font-size: 20px;
 }
-.free {
+.outlined {
   border: 1px solid rgba(30, 100, 255, 0.9);
 
   color: rgba(30, 100, 255, 0.9);
   background-color: white;
   border-radius: 5px;
 }
-.pro {
+.contained {
   border: none;
   border-radius: 5px;
 
