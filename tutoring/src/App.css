@@ -150,64 +150,6 @@
 
   text-align: center;
 }
-
-.card {
-  width: 290px;
-  height: 310px;
-
-  margin: 25px 15px 55px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  padding-bottom: 20px;
-}
-.card-main {
-  text-align: center;
-}
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 55px;
-
-  font-size: 24px;
-  background-color: rgba(230, 230, 230, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.card-main-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 30px;
-
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.card-price {
-  font-size: 40px;
-  font-weight: 600;
-}
-
-.card-per-month {
-  font-size: 30px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.card-content-el {
-  margin: 0px 0px 3px 0px;
-}
-
-.card-button {
-  width: 250px;
-  height: 50px;
-
-  margin-top: 20px;
-
-  font-size: 20px;
-}
 .outlined {
   border: 1px solid rgba(30, 100, 255, 0.9);
 
