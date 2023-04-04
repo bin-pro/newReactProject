@@ -71,10 +71,6 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       var buttonStyle = id === 0 ? "outlined" : "contained";
       var plan = id === 0 ? "free" : id === 1 ? "pro" : "enterprise";
 
-      const increaseUserNumber = () => {
-        handleUserNumberIncrease(plan);
-      };
-
       return (
         <div className="card box-shadow" key={`card_item_${id}`}>
           <div className="card-header">{title}</div>
@@ -87,7 +83,7 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
           </div>
           <div className="card-footer">
             <button
-              onClick={increaseUserNumber}
+              onClick={handleUserNumberIncrease(plan)}
               className={`card-button ${buttonStyle}`}
             >
               {buttonText}

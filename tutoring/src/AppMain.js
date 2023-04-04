@@ -8,7 +8,7 @@ function AppMain() {
     enterprise: 30,
   });
 
-  const handleUserNumberIncrease = (plan) => {
+  const handleUserNumberIncrease = (plan) => () => {
     setUserNumber((prevState) => ({
       ...prevState,
       //스프레드 연산자로 prevState를 deep copy한다.
@@ -17,6 +17,11 @@ function AppMain() {
       [plan]: prevState[plan] + 1,
     }));
   };
+  /**함수 커링(currying) : 다른 화살표 함수로 래핑하는 대신 직접 클릭 핸들러로 사용할 수 있다.
+  *함수를 커링하면 원래 계획 매개변수를 
+  *"기억"하고 나중에 클릭 이벤트 인수로 호출할 수 있는 새 함수를 만들 수 있다. 
+  이렇게 하면 모든 렌더링에서 새 함수를 생성하지 않아도 되므로 성능이 향상될 수 있다.
+   */
 
   var b = 0;
   const [c, setC] = useState(0);
