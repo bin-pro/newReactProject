@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CardList.css";
+
 /* 
 FeedBack 
 - 저번에 말씀드린 바와 같이, 
@@ -27,7 +28,6 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       storage: 2,
       support: "Email",
       buttonText: "Sign up for free",
-      handleButtonClick: () => handleUserNumberIncrease("free"),
     },
     {
       id: 1,
@@ -37,7 +37,6 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       storage: 10,
       support: "Priority email",
       buttonText: "Get started",
-      handleButtonClick: () => handleUserNumberIncrease("pro"),
     },
     {
       id: 2,
@@ -47,23 +46,16 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       storage: 15,
       support: "Phone and email",
       buttonText: "Contact us",
-      handleButtonClick: () => handleUserNumberIncrease("enterprise"),
     },
   ];
 
   return cardDataArray.map(
-    ({
-      id,
-      title,
-      price,
-      users,
-      storage,
-      support,
-      buttonText,
-      handleButtonClick,
-    }) => {
+    ({ id, title, price, users, storage, support, buttonText }) => {
       /* dom의 class를 객체의 값으로 할당하는 것은 안티패턴. 왜? 직관적으로 해당 dom에 어떤 class가 할당되었는지 바로 알 수 없기 때문에 */
+
       var buttonStyle = id === 0 ? "outlined" : "contained";
+      var plan = id === 0 ? "free" : id === 1 ? "pro" : "enterprise";
+
       return (
         <div className="card box-shadow" key={`card_item_${id}`}>
           <div className="card-header">{title}</div>
@@ -80,7 +72,9 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
           </div>
           <div className="card-footer">
             <button
-              onClick={() => handleButtonClick()}
+              onClick={() => {
+                handleUserNumberIncrease(plan);
+              }}
               className={`card-button ${buttonStyle}`}
             >
               {buttonText}
