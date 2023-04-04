@@ -1,4 +1,34 @@
 function AppFooter() {
+  const listDataArray = [
+    {
+      id: 1,
+      title: "Features",
+      listContentArray: [
+        "Cool stuff",
+        "Random feature",
+        "Team feature",
+        "Stuff for developers",
+        "Another one",
+        "Last time",
+      ],
+    },
+    {
+      id: 2,
+      title: "Resources",
+      listContentArray: [
+        "Resources",
+        "Resource name",
+        "Another resource",
+        "Final resource",
+      ],
+    },
+    {
+      id: 3,
+      title: "About",
+      listContentArray: ["Team", "Locations", "Privacy", "Terms"],
+    },
+  ];
+
   return (
     <div className="footer">
       <div className="info">
@@ -8,40 +38,31 @@ function AppFooter() {
             src={`${process.env.PUBLIC_URL}/images/bootstrapLogo.png`}
           />
         </p>
-
-        <p className="copyright">
-          <span dangerouslySetInnerHTML={{ __html: "&copy;" }} /> 2017-2018
-        </p>
+        <p className="copyright">© 2017-2018</p>
       </div>
-
-      <div className="footer-div">
-        <h3 className="footer-list-title">Features</h3>
-        <ul className="footer-list">
-          <li className="footer-list-el">Cool stuff</li>
-          <li className="footer-list-el">Random feature</li>
-          <li className="footer-list-el">Team feature</li>
-          <li className="footer-list-el">Stuff for developers</li>
-          <li className="footer-list-el">Another one</li>
-          <li className="footer-list-el">Last time</li>
-        </ul>
-      </div>
-      <div className="footer-div">
-        <h3 className="footer-list-title">Resources</h3>
-        <ul className="footer-list">
-          <li className="footer-list-el">Resource</li>
-          <li className="footer-list-el">Resource name</li>
-          <li className="footer-list-el">Another resource</li>
-          <li className="footer-list-el">Final resource</li>
-        </ul>
-      </div>
-      <div className="footer-div">
-        <h3 className="footer-list-title">About</h3>
-        <ul className="footer-list">
-          <li className="footer-list-el">Team</li>
-          <li className="footer-list-el">Locations</li>
-          <li className="footer-list-el">Privacy</li>
-          <li className="footer-list-el">Terms</li>
-        </ul>
+      <div className="footer-list-container">
+        {listDataArray.map(({ id, title, listContentArray }) => {
+          return (
+            <div
+              key={`footer_list_wrapper_${id}`}
+              className="footer-list-wrapper"
+            >
+              <h3 className="footer-list-title">{title}</h3>
+              <ul className="footer-list">
+                {listContentArray.map((listContent, index) => {
+                  return (
+                    <li
+                      key={`footer_list_${id}_item_${index}`}
+                      className="footer-list-content"
+                    >
+                      {listContent}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

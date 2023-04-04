@@ -11,7 +11,9 @@ function AppMain() {
   const handleUserNumberIncrease = (plan) => {
     setUserNumber((prevState) => ({
       ...prevState,
+      //스프레드 연산자로 prevState를 deep copy한다.
       //price 상태 객체의 다른 속성은 유지하고 하나의 속성만 업데이트할 때 덮어쓰지 않도록 하는데 사용. 개체 속성이 하나라면 스프레드 연산자 사용X
+      //객체 리터럴로 선언되어
       [plan]: prevState[plan] + 1,
     }));
   };

@@ -56,6 +56,15 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       var buttonStyle = id === 0 ? "outlined" : "contained";
       var plan = id === 0 ? "free" : id === 1 ? "pro" : "enterprise";
 
+      const increaseUserNumber = () => {
+        handleUserNumberIncrease(plan);
+      };
+      const cardParagraphContentArray = [
+        `${users} users included`,
+        `${storage} GB of storage`,
+        `${support} support`,
+        "Help center access",
+      ];
       return (
         <div className="card box-shadow" key={`card_item_${id}`}>
           <div className="card-header">{title}</div>
@@ -65,16 +74,17 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
               <span className="card-per-month">&nbsp;/ mo</span>
             </h3>
 
-            <p className="card-content-el">{users} users included</p>
-            <p className="card-content-el">{storage} GB of storage</p>
-            <p className="card-content-el">{support} support</p>
-            <p className="card-content-el">Help center access</p>
+            {cardParagraphContentArray.map((paragraphContent, index) => {
+              return (
+                <p key={`card_${id}_content_${index}`} className="card-content">
+                  {paragraphContent}
+                </p>
+              );
+            })}
           </div>
           <div className="card-footer">
             <button
-              onClick={() => {
-                handleUserNumberIncrease(plan);
-              }}
+              onClick={increaseUserNumber}
               className={`card-button ${buttonStyle}`}
             >
               {buttonText}
