@@ -1,5 +1,5 @@
 function AppFooter() {
-  const listDataArray = [
+  const footerListData = [
     {
       id: 1,
       title: "Features",
@@ -29,6 +29,28 @@ function AppFooter() {
     },
   ];
 
+  const footerList = () => {
+    return footerListData.map(({ id, title, listContentArray }) => {
+      return (
+        <div key={`footer_list_wrapper_${id}`} className="footer-list-wrapper">
+          <h3 className="footer-list-title">{title}</h3>
+          <ul className="footer-list">
+            {listContentArray.map((listContent, index) => {
+              return (
+                <li
+                  key={`footer_list${id}_item${index}`}
+                  className="footer-list-content"
+                >
+                  {listContent}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="footer">
       <div className="info">
@@ -40,30 +62,7 @@ function AppFooter() {
         </p>
         <p className="copyright">© 2017-2018</p>
       </div>
-      <div className="footer-list-container">
-        {listDataArray.map(({ id, title, listContentArray }) => {
-          return (
-            <div
-              key={`footer_list_wrapper_${id}`}
-              className="footer-list-wrapper"
-            >
-              <h3 className="footer-list-title">{title}</h3>
-              <ul className="footer-list">
-                {listContentArray.map((listContent, index) => {
-                  return (
-                    <li
-                      key={`footer_list_${id}_item_${index}`}
-                      className="footer-list-content"
-                    >
-                      {listContent}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
+      <div className="footer-list-container">{footerList()}</div>
     </div>
   );
 }

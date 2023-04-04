@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CardList.css";
 
 /* 
@@ -53,18 +53,28 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
     ({ id, title, price, users, storage, support, buttonText }) => {
       /* dom의 class를 객체의 값으로 할당하는 것은 안티패턴. 왜? 직관적으로 해당 dom에 어떤 class가 할당되었는지 바로 알 수 없기 때문에 */
 
+      const cardParagraphContents = () => {
+        return [
+          `${users} users included`,
+          `${storage} GB of storage`,
+          `${support} support`,
+          "Help center access",
+        ].map((paragraphContent, index) => {
+          return (
+            <p key={`card${id}_content${index}`} className="card-content">
+              {paragraphContent}
+            </p>
+          );
+        });
+      };
+
       var buttonStyle = id === 0 ? "outlined" : "contained";
       var plan = id === 0 ? "free" : id === 1 ? "pro" : "enterprise";
 
       const increaseUserNumber = () => {
         handleUserNumberIncrease(plan);
       };
-      const cardParagraphContentArray = [
-        `${users} users included`,
-        `${storage} GB of storage`,
-        `${support} support`,
-        "Help center access",
-      ];
+
       return (
         <div className="card box-shadow" key={`card_item_${id}`}>
           <div className="card-header">{title}</div>
@@ -73,14 +83,7 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
               <span className="card-price">${price}</span>
               <span className="card-per-month">&nbsp;/ mo</span>
             </h3>
-
-            {cardParagraphContentArray.map((paragraphContent, index) => {
-              return (
-                <p key={`card_${id}_content_${index}`} className="card-content">
-                  {paragraphContent}
-                </p>
-              );
-            })}
+            {cardParagraphContents()}
           </div>
           <div className="card-footer">
             <button

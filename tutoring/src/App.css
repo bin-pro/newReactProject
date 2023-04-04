@@ -116,14 +116,18 @@
   padding-top: 60px;
 }
 
+.main-content-container {
+  margin-bottom: 20px;
+
+  text-align: center;
+}
 .main-title {
   margin-bottom: 5px;
 
   font-size: 55px;
   font-weight: 100;
 }
-
-.main-explainer-wrapper {
+.main-content-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -132,19 +136,15 @@
   margin-bottom: 30px;
 
   font-weight: 50;
-  text-align: center;
 }
 
 .main-content {
-  margin-bottom: 20px;
-}
-
-.main-content-el {
   margin-top: 0px;
   margin-bottom: 3px;
 
   font-size: 20px;
 }
+
 .card-container {
   display: flex;
 

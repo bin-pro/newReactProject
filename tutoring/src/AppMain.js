@@ -65,18 +65,18 @@ function AppMain() {
           </div>
         </div>
 
-        <div className="main-explainer-wrapper">
+        <div className="main-content-container">
           <h1 className="main-title">Pricing</h1>
-          <div className="main-content">
-            <p className="main-content-el">
+          <div className="main-content-wrapper">
+            <p className="main-content">
               Quickly build an effective pricing table for your potential
               customers with this
             </p>
-            <p className="main-content-el">
+            <p className="main-content">
               Bootstrap example. It's built with default Bootstrap components
               and utilities with
             </p>
-            <p className="main-content-el">little customization.</p>
+            <p className="main-content">little customization.</p>
           </div>
         </div>
         <div className="card-container">
