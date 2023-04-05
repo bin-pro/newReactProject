@@ -21,7 +21,7 @@ apply
 const CardList = ({ userNumber, handleUserNumberIncrease }) => {
   const cardDataArray = [
     {
-      id: 0,
+      id: 1,
       title: "Free",
       price: 0,
       users: userNumber.free,
@@ -30,7 +30,7 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       buttonText: "Sign up for free",
     },
     {
-      id: 1,
+      id: 2,
       title: "Pro",
       price: 15,
       users: userNumber.pro,
@@ -39,7 +39,7 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
       buttonText: "Get started",
     },
     {
-      id: 2,
+      id: 3,
       title: "Enterprise",
       price: 29,
       users: userNumber.enterprise,
@@ -68,8 +68,8 @@ const CardList = ({ userNumber, handleUserNumberIncrease }) => {
         });
       };
 
-      var buttonStyle = id === 0 ? "outlined" : "contained";
-      var plan = id === 0 ? "free" : id === 1 ? "pro" : "enterprise";
+      var buttonStyle = id === 1 ? "outlined" : "contained";
+      var plan = id === 1 ? "free" : id === 2 ? "pro" : "enterprise";
 
       return (
         <div className="card box-shadow" key={`card_item_${id}`}>

@@ -29,26 +29,26 @@ function AppFooter() {
     },
   ];
 
-  const footerList = () => {
-    return footerListData.map(({ id, title, listContentArray }) => {
+  const getLists = (id, listContentArray) => {
+    return listContentArray.map((listContent, index) => {
       return (
-        <div key={`footer_list_wrapper_${id}`} className="footer-list-wrapper">
-          <h3 className="footer-list-title">{title}</h3>
-          <ul className="footer-list">
-            {listContentArray.map((listContent, index) => {
-              return (
-                <li
-                  key={`footer_list${id}_item${index}`}
-                  className="footer-list-content"
-                >
-                  {listContent}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <li
+          key={`footer_list${id}_item${index}`}
+          className="footer-list-content"
+        >
+          {listContent}
+        </li>
       );
     });
+  };
+
+  const footerList = () => {
+    return footerListData.map(({ id, title, listContentArray }) => (
+      <div key={`footer_list_wrapper_${id}`} className="footer-list-wrapper">
+        <h3 className="footer-list-title">{title}</h3>
+        <ul className="footer-list">{getLists(id, listContentArray)}</ul>
+      </div>
+    ));
   };
 
   return (
