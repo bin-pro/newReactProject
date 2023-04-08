@@ -1,7 +1,7 @@
 import CardList from "./components/CardList";
 import React, { useState } from "react";
 var a = 0;
-function AppMain() {
+const AppMain = () => {
   const [userNumber, setUserNumber] = useState({
     free: 10,
     pro: 20,
@@ -93,5 +93,5 @@ function AppMain() {
       </div>
     </div>
   );
-}
+};
 export default AppMain;

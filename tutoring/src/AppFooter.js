@@ -1,4 +1,4 @@
-function AppFooter() {
+const AppFooter = () => {
   const footerListData = [
     {
       id: 1,
@@ -65,5 +65,5 @@ function AppFooter() {
       <div className="footer-list-container">{footerList()}</div>
     </div>
   );
-}
+};
 export default AppFooter;

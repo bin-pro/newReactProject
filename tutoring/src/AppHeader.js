@@ -1,4 +1,4 @@
-function AppHeader() {
+const AppHeader = () => {
   return (
     <div className="header">
       <div className="nav-wrapper border-bottom box-shadow">
@@ -25,5 +25,5 @@ function AppHeader() {
       </div>
     </div>
   );
-}
+};
 export default AppHeader;
